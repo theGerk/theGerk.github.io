@@ -7,7 +7,7 @@
         <script>
             function read(e)
             {
-                var x = Papa.parse(e.target.files[0],
+                Papa.parse(e.target.files[0],
 {
 	delimiter: "",	// auto-detect
 	newline: "",	// auto-detect
@@ -21,7 +21,9 @@
 	worker: false,
 	comments: false,
 	step: undefined,
-	complete: undefined,
+	complete: function(x){
+        compute(x.data);
+    },
 	error: undefined,
 	download: false,
 	downloadRequestHeaders: undefined,
@@ -32,12 +34,12 @@
 	withCredentials: undefined,
 	transform: undefined,
 	delimitersToGuess: [',', '\t', '|', ';', Papa.RECORD_SEP, Papa.UNIT_SEP]
-});
+})
             }
 
-            function compute()
+            function compute(input)
             {
-                
+                console.log(JSON.stringify(input));
             }
 
         </script>
