@@ -51,6 +51,12 @@
                 }
                 for(var i = 1; i < input.length; i++)
                 {
+                    var check = 0;
+                    for(var j = 0; j < input[i].length; j++)
+                        if(input[i][j])
+                            check++;
+                    if(check === 0)
+                        continue;
                     var cur = input[i];
                     if(cur[0].toLowerCase() === 'yes')
                         tally.hispanic.yes++;
